@@ -22,5 +22,6 @@ class Contact
 	void find_contact();
 	void update_index(int);
 };
+void print_info(std::string message);
 
 #endif

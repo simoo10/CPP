@@ -1,7 +1,7 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# define MAX 3
+# define MAX 8
 # include "contact.hpp"
 # include <iostream>
 

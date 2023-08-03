@@ -10,54 +10,84 @@ Contact::~Contact()
 {
 	return ;
 }
+void	print_info(std::string message)
+{
+	std::cout << "fill the information:" << std::endl;
+	std::cout << message;
+}
+
+int	check_space(std::string info)
+{
+	int	i;
+
+	i = 0;
+	while (info[i])
+	{
+		if (std::isspace(info[i]))
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
 void Contact ::save_contact(int cpt)
 {
-	std::cout << "Please fill this information:" << std::endl;
+	print_info("first_name:");
 	std::getline(std::cin, first_name);
-	while (first_name.empty())
+	if (std::cin.eof())
+		exit(1);
+	while (first_name.empty() || check_space(first_name))
 	{
-		std::cout << "fill the information:" << std::endl;
-		std::cout << "first_name: ";
+		print_info("first_name: ");
 		std::getline(std::cin, first_name);
+		if (std::cin.eof())
+			exit(1);
 	}
 	std::cout << "last_name: ";
 	std::getline(std::cin, last_name);
-	while (last_name.empty())
+	if (std::cin.eof())
+		exit(1);
+	while (last_name.empty() || check_space(last_name))
 	{
-		std::cout << "fill the information:" << std::endl;
-		std::cout << "last_name: ";
+		print_info("last_name: ");
 		std::getline(std::cin, last_name);
+		if (std::cin.eof())
+			exit(1);
 	}
 	std::cout << "nickname: ";
 	std::getline(std::cin, nickname);
-	while (nickname.empty())
+	if (std::cin.eof())
+		exit(1);
+	while (nickname.empty() || check_space(nickname))
 	{
-		std::cout << "fill the information:" << std::endl;
-		std::cout << "nickname: ";
+		print_info("nickname: ");
 		std::getline(std::cin, nickname);
+		if (std::cin.eof())
+			exit(1);
 	}
 	std::cout << "tel_num: ";
 	std::getline(std::cin, tel_num);
-	while (tel_num.empty())
+	if (std::cin.eof())
+		exit(1);
+	while (tel_num.empty() || check_space(tel_num))
 	{
-		std::cout << "fill the information:" << std::endl;
-		std::cout << "tel_num: ";
+		print_info("tel_num: ");
 		std::getline(std::cin, tel_num);
+		if (std::cin.eof())
+			exit(1);
 	}
 	std::cout << "dark_secret: ";
 	std::getline(std::cin, dark_secret);
-	while (dark_secret.empty())
-	{
-		std::cout << "fill the information:" << std::endl;
-		std::cout << "dark_secret: ";
-		std::getline(std::cin, dark_secret);
-	}
 	if (std::cin.eof())
-	{
-		std::cout << "end od file" << std::endl;
 		exit(1);
+	while (dark_secret.empty() || check_space(dark_secret))
+	{
+		print_info("dark_secret: ");
+		std::getline(std::cin, dark_secret);
+		if (std::cin.eof())
+			exit(1);
 	}
-	id = cpt;
+	id = cpt + 1;
 }
 
 void	print_str(std::string str)
@@ -92,5 +122,5 @@ void Contact::find_contact()
 }
 void Contact::update_index(int ind)
 {
-	id = ind;
+	id = ind + 1;
 }

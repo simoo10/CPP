@@ -2,7 +2,7 @@
 
 char	*lower_to_upper(char *s)
 {
-	int	i;
+	size_t	i;
 
 	for (i = 0; i < strlen(s); i++)
 		s[i] = toupper(s[i]);
