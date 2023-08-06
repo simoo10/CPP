@@ -14,7 +14,12 @@ HumanB ::~HumanB()
 
 void HumanB::attack()
 {
-	std::cout << name << " attacks with their " << wep->getType() << std::endl;
+	if (wep == NULL)
+	{
+		std::cout << name << " has no weapon to attack his ennemy!" << std::endl;
+	}
+	else
+		std::cout << name << " attacks with their " << wep->getType() << std::endl;
 }
 void HumanB ::setWeapon(Weapon &wepon)
 {

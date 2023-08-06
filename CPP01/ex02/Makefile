@@ -1,7 +1,7 @@
-CFLAGS	= -Wall -Wextra -Werror -std=c++98c
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
-NAME	= zombie
+NAME	= brain
 SRC		= main.cpp \
 
 OBJ	= $(SRC:.cpp=.o)
@@ -9,7 +9,7 @@ OBJ	= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CFLAGS) $(OBJ) -o $(NAME)
+	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

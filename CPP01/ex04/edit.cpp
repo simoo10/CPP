@@ -14,29 +14,30 @@ Edit::~Edit()
 
 void Edit::read_file(std::string _filename)
 {
-	int	i;
-	int	position;
+	unsigned long	position;
 
-	i = 0;
+	std::string text_tmp;
 	new_file = _filename + ".replace";
-	std::ifstream inputFile(_filename);
-	if (!inputFile.is_open())
+	std::ifstream infile;
+	infile.open(_filename);
+	if (!infile.is_open())
 	{
 		std::cout << "Error!" << std::endl;
 		exit(0);
 	}
-	std::getline(inputFile, text, '\0');
+	std::getline(infile, text, '\0');
 	position = text.find(str1);
 	while (position != std::string::npos && str2 != "" && str1 != "")
 	{
 		if (position != std::string::npos)
 		{
-			text = text.substr(0, position) + str2 + text.substr(position
-					+ str2.length());
-			position = text.find(str1);
+			text_tmp = text.substr(position + str1.length());
+			text = text.substr(0, position) + str2 + text_tmp;
+			position = text.find(str1, position + str2.length());
 		}
 	}
-	std::ofstream outfile(new_file);
+	std::ofstream outfile;
+	outfile.open(new_file);
 	new_file.append(text);
 	if (!outfile.is_open())
 	{
@@ -44,6 +45,6 @@ void Edit::read_file(std::string _filename)
 		exit(0);
 	}
 	outfile << text;
-	inputFile.close();
+	infile.close();
 	outfile.close();
 }

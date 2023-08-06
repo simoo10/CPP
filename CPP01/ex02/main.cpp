@@ -5,7 +5,6 @@ int	main(void)
 	std::string s = "HI THIS IS BRAIN";
 	std::string *p = &s;
 	std::string &ref = *p;
-
 	std::cout << "---------L'adresse des variables---------" << std::endl;
 	std::cout << &s << std::endl;
 	std::cout << &p << std::endl;
