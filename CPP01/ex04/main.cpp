@@ -6,7 +6,6 @@ int	main(int c, char **v)
 	{
 		std::cout << "please enter all the arguments needed" << std::endl;
 		exit(0);
-		std::cout << "coutqw";
 	}
 	else
 	{

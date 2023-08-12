@@ -1,7 +1,7 @@
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
-NAME	= ee
+NAME	= harl
 SRC		= main.cpp \
 			Harl.cpp \
 			 
@@ -11,7 +11,7 @@ OBJ	= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CFLAGS) $(OBJ) -o $(NAME)
+	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

@@ -10,7 +10,6 @@ class Edit
 	std::string text;
 	std::string str2;
 	std::string str1;
-	//std::string edit_text;
 	std::string new_file;
 
   public:

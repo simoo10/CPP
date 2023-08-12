@@ -22,7 +22,7 @@ void Edit::read_file(std::string _filename)
 	infile.open(_filename);
 	if (!infile.is_open())
 	{
-		std::cout << "Error!" << std::endl;
+		std::cout << "Error! something goes bad in opening file!" << std::endl;
 		exit(0);
 	}
 	std::getline(infile, text, '\0');
@@ -36,15 +36,14 @@ void Edit::read_file(std::string _filename)
 			position = text.find(str1, position + str2.length());
 		}
 	}
+	infile.close();
 	std::ofstream outfile;
 	outfile.open(new_file);
-	new_file.append(text);
 	if (!outfile.is_open())
 	{
-		std::cout << "Error!" << std::endl;
+		std::cout << "Error! something goes bad in opening file!" << std::endl;
 		exit(0);
 	}
 	outfile << text;
-	infile.close();
 	outfile.close();
 }
