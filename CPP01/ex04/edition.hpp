@@ -16,7 +16,6 @@ class Edit
 	Edit();
 	Edit(std::string _filename, std::string s1, std::string s2);
 	~Edit();
-	int search_s1(std::string s1, std::string s2);
 	void read_file(std::string _filename);
 };
 

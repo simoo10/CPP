@@ -1,4 +1,4 @@
-CFLAGS	= -Wall -Wextra -Werror -std=c++98c
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
 NAME	= account

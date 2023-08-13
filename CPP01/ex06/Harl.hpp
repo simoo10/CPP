@@ -15,8 +15,6 @@ class Harl
 	Harl();
 	~Harl();
 	void complain(std::string level);
-	void switch_cases(std::string level);
-	void (Harl::*lvl[4])(void);
 };
 
 #endif
