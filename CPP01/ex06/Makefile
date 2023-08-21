@@ -11,7 +11,7 @@ OBJ	= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+	clang++ $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

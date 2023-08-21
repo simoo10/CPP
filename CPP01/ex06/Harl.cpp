@@ -19,17 +19,24 @@ void Harl::complain(std::string level)
 	{
 		if (nv[i] == level)
 		{
+			while(i<4)
+			{
 			switch (i)
 			{
 			case 0:
 				debug();
+				break;
 			case 1:
 				info();
+				break;
 			case 2:
 				warning();
+				break;
 			case 3:
 				error();
 				break ;
+			}
+			i++;
 			}
 			return ;
 		}
