@@ -7,17 +7,19 @@ Animal::Animal()
 }
 Animal::Animal(const Animal& obj)
 {
+     std::cout << "Animal copy constructor called" << std::endl;
     *this = obj;
 }
 Animal& Animal::operator=(const Animal& obj)
 {
+    std::cout<<"copy assignament of animal called"<<std::endl;
     if(this != &obj)
     {
         _type = obj._type;
     }
     return(*this);
 }
-void  Animal::makeSound() const
+void Animal::makeSound() const
 {
     std::cout<<"Animal sound!!(no specific animal)"<<std::endl;
 }

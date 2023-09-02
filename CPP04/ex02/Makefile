@@ -2,13 +2,12 @@ CLANG = c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
-NAME	= animal
+NAME	= brain
 SRC		= main.cpp\
-			Dog.cpp\
 			Animal.cpp\
+			Dog.cpp\
 			Cat.cpp\
-			WrongCat.cpp\
-			WrongAnimal.cpp\
+			Brain.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
 
