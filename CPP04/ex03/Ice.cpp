@@ -24,3 +24,8 @@ Ice::~Ice()
 {
     std::cout << "Ice materia destructor is called" << std::endl;
 }
+
+AMateria* Ice::clone() const
+{
+    return(new Ice(*this));
+}

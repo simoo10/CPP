@@ -2,7 +2,8 @@
 #define AMATERIA_HPP
 
 #include<iostream>
-
+#include"ICharacter.hpp"
+#include"Character.hpp"
 class AMateria{
     protected:
         std::string _type;
@@ -14,7 +15,7 @@ class AMateria{
         AMateria& operator=(const AMateria& obj);
         std::string const & getType() const; //Returns the materia type
         virtual AMateria* clone() const = 0;
-        //virtual void use(ICharacter& target);
+        virtual void use(ICharacter& target);
 };
 
 #endif
