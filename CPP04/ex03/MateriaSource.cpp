@@ -1,54 +1,54 @@
 #include"MateriaSource.hpp"
 
-MateriaSource::MateriaSource() //: AMateria("ice")
+MateriaSource::MateriaSource() 
 {
     //std::cout << "MateriaSource default constructor is called" << std::endl;
     for(int i = 0; i < 4; i++)	{
-		stock[i] = NULL;
+		reserve[i] = NULL;
 	}
 }
 
-MateriaSource::MateriaSource( MateriaSource const & obj )// : AMateria("ice")
+MateriaSource::MateriaSource( MateriaSource const & obj )
 {
     *this = obj;
     //std::cout << "MateriaSource copy constructor is called" << std::endl;
 }
 
 MateriaSource&   MateriaSource::operator=( const MateriaSource& obj ) {
-	if(this==&obj)
+	if(this!=&obj)
 	{
 		for(int i = 0; i < 4; i++)
 		{
-			if (obj.stock[i])
-				stock[i] = obj.stock[i]->clone();
+			if (obj.reserve[i])
+				reserve[i] = obj.reserve[i]->clone();
 			else
-				stock[i] = NULL;
+				reserve[i] = NULL;
 		}
 	}
 	return (*this);
 }
-void MateriaSource::learnMateria(AMateria* mat)	{
+void MateriaSource::learnMateria(AMateria* material)	{
 	for(int i = 0; i < 4; i++)	{
-		if (!this->stock[i]){
-			this->stock[i] = mat->clone();
-			delete mat;
+		if (!this->reserve[i]){
+			this->reserve[i] = material->clone();
+			delete material;
 			return;
 		}		
 	}
-	delete mat;
+	delete material;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type)	{
 	for(int i = 0; i < 4; i++)	{
-		if (stock[i] && stock[i]->getType() == type)
-			return (stock[i]->clone());
+		if (reserve[i] && reserve[i]->getType() == type)
+			return (reserve[i]->clone());
 	}
 	return (0);
 }
 MateriaSource::~MateriaSource()
 {
     for(int i = 0; i < 4; i++)	{
-		if (stock[i])
-			delete stock[i];
+		if (reserve[i])
+			delete reserve[i];
 	}
 }

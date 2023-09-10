@@ -1,6 +1,6 @@
 #include"Character.hpp"
 
-Character::Character() //: AMateria("ice")
+Character::Character()
 {
     name = "character";
    // std::cout << "Character default constructor is called" << std::endl;
@@ -20,7 +20,7 @@ Character::Character(std::string _name)
     }
 }
 
-Character::Character( Character const & obj )// : AMateria("ice")
+Character::Character( Character const & obj )
 {
     *this = obj;
     //std::cout << "Character copy constructor is called" << std::endl;
@@ -73,7 +73,7 @@ void Character::equip(AMateria* m)	{
 }
 void Character:: unequip(int idx)
 {
-    if (idx < 4 && inventory[idx])
+    if (inventory[idx] && idx < 4 )
     {
         save[idx] =inventory[idx];
 		inventory[idx] = NULL;
@@ -84,11 +84,6 @@ void Character:: unequip(int idx)
 }
 void Character::use(int idx, ICharacter& target)
 {
-      if(idx < 4 && inventory[idx])
-      {
-        inventory[idx]->use(target);
-     //  std::cout<<name<<" has been use"<<inventory[idx]->getType()<<std::endl;
-      }
-      //else
-      //  std::cout<<"no iventory in this index"<<std::endl;
+      if(inventory[idx] && idx<4)
+         inventory[idx]->use(target);
 }

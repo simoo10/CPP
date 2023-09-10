@@ -1,5 +1,5 @@
 CLANG = c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3 -fsanitize=address
 LIBC	= ar -rc
 RM		= rm -f
 NAME	= materia

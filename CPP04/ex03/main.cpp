@@ -6,6 +6,7 @@
 
 int main()
 {
+std::cout<<"----------------------TEST FROM SUBJECT-------------------------------------"<<std::endl;
 {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
@@ -17,14 +18,16 @@ int main()
     tmp = src->createMateria("cure");
     me->equip(tmp);
     ICharacter* bob = new Character("bob");
+    *bob = *me;
     me->use(0, *bob);
     me->use(1, *bob);
     delete bob;
     delete me;
     delete src;
 }
+std::cout<<"----------------------TEST WITH UNIQUIPING MATERIA---------------------------"<<std::endl;
 {
-    std::cout<<"----------------------TEST WITH UNIQUIPING MATERIA---------------------------"<<std::endl;
+    
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
