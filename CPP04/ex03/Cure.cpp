@@ -6,7 +6,7 @@ Cure::Cure()
    // std::cout << "Cure materia default constructor is called" << std::endl;
 }
 
-Cure::Cure( Cure const & obj )// : AMateria("Cure")
+Cure::Cure( const Cure & obj )// : AMateria("Cure")
 {
     *this = obj;
   //  std::cout << "Cure materia copy constructor is called" << std::endl;
@@ -15,7 +15,7 @@ Cure::Cure( Cure const & obj )// : AMateria("Cure")
 Cure&   Cure::operator=( const Cure& obj ) {
   //  std::cout << "Ice materia copy assignament is called" << std::endl;
     if (this != &obj)
-        this->_type = obj._type;
+       _type = obj._type;
     return (*this);
 }
 
@@ -28,7 +28,7 @@ AMateria* Cure::clone() const
 {
     return(new Cure(*this));
 }
-void Cure::use(ICharacter& target )
+void Cure::use(ICharacter& target)
 {
-    std::cout<<"* heals  "<<target.getName()<<"’s wounds *"<<std::endl;
+    std::cout<<"* heals  "<<target.getName()<<"'s wounds *"<<std::endl;
 }

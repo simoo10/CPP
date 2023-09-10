@@ -15,11 +15,15 @@ MateriaSource::MateriaSource( MateriaSource const & obj )// : AMateria("ice")
 }
 
 MateriaSource&   MateriaSource::operator=( const MateriaSource& obj ) {
-	for(int i = 0; i < 4; i++)	{
-		if (obj.stock[i])
-			stock[i] = obj.stock[i]->clone();
-		else
-			stock[i] = NULL;
+	if(this==&obj)
+	{
+		for(int i = 0; i < 4; i++)
+		{
+			if (obj.stock[i])
+				stock[i] = obj.stock[i]->clone();
+			else
+				stock[i] = NULL;
+		}
 	}
 	return (*this);
 }

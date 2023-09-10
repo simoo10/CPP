@@ -30,6 +30,6 @@ std::string const & AMateria:: getType() const
 }
 void AMateria::use(ICharacter& target)	{
 	
-	std::cout << "Can't use AMateria of type " << _type << "on "
-			  << target.getName() << std::endl; 
+	std::cout << "we can not use this " << _type << "for this name: "
+			    << target.getName() << std::endl; 
 }

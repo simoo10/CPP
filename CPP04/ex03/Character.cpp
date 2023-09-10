@@ -51,8 +51,6 @@ Character::~Character()
             delete inventory[i];
             inventory[i]=NULL;
         }
-        if(save[i])
-            delete save[i];
     }
    // std::cout << "Character destructor is called" << std::endl;
 }
@@ -71,6 +69,7 @@ void Character::equip(AMateria* m)	{
 			return ;
 		}	
 	}
+    std::cout<<"THE INVENTORY IS FULL NOW!"<<std::endl;
 }
 void Character:: unequip(int idx)
 {
@@ -78,13 +77,14 @@ void Character:: unequip(int idx)
     {
         save[idx] =inventory[idx];
 		inventory[idx] = NULL;
+        std::cout<<"THIS INVENTORY WITH INDEX "<<idx<<" HAS UNIQUIPED NOW"<<std::endl;
     }
-    // else
-    //     std::cout<<name<<" is unquiped already"<<std::endl;
+    else
+        std::cout<<"THIS IDX DOES NOT EXIST"<<std::endl;
 }
 void Character::use(int idx, ICharacter& target)
 {
-      if(inventory[idx])
+      if(idx < 4 && inventory[idx])
       {
         inventory[idx]->use(target);
      //  std::cout<<name<<" has been use"<<inventory[idx]->getType()<<std::endl;
