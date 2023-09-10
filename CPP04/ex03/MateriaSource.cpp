@@ -15,13 +15,11 @@ MateriaSource::MateriaSource( MateriaSource const & obj )// : AMateria("ice")
 }
 
 MateriaSource&   MateriaSource::operator=( const MateriaSource& obj ) {
-    if (this == & obj)
-		return (*this);
 	for(int i = 0; i < 4; i++)	{
 		if (obj.stock[i])
-			this->stock[i] = obj.stock[i]->clone();
+			stock[i] = obj.stock[i]->clone();
 		else
-			this->stock[i] = NULL;
+			stock[i] = NULL;
 	}
 	return (*this);
 }
@@ -31,8 +29,7 @@ void MateriaSource::learnMateria(AMateria* mat)	{
 			this->stock[i] = mat->clone();
 			delete mat;
 			return;
-		}
-			
+		}		
 	}
 	delete mat;
 }

@@ -1,7 +1,8 @@
 #include"Ice.hpp"
 
-Ice::Ice() : AMateria("ice")
+Ice::Ice()
 {
+    _type = "ice";
     //std::cout << "Ice materia default constructor is called" << std::endl;
 }
 

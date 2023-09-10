@@ -31,7 +31,9 @@ Character&   Character::operator=( const Character& obj ) {
     if (this != &obj)
     {
         for(int i = 0;i<4;i++)
-        {   delete inventory[i];
+        {   
+            if(inventory[i])
+                delete inventory[i];
             inventory[i] = obj.inventory[i]->clone();
             save[i] = inventory[i];
         }

@@ -15,13 +15,12 @@ tmp = src->createMateria("ice");
 me->equip(tmp);
 tmp = src->createMateria("cure");
 me->equip(tmp);
-me->unequip(1);
 ICharacter* bob = new Character("bob");
+bob = me;
 me->use(0, *bob);
 me->use(1, *bob);
-
-delete bob;
 delete me;
+delete bob;
 delete src;
 //system("leaks brain");
 return 0;

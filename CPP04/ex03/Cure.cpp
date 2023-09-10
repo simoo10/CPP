@@ -1,6 +1,6 @@
 #include"Cure.hpp"
 
-Cure::Cure() : AMateria("Cure")
+Cure::Cure()
 {
     _type="cure";
    // std::cout << "Cure materia default constructor is called" << std::endl;
@@ -15,9 +15,7 @@ Cure::Cure( Cure const & obj )// : AMateria("Cure")
 Cure&   Cure::operator=( const Cure& obj ) {
   //  std::cout << "Ice materia copy assignament is called" << std::endl;
     if (this != &obj)
-    {
         this->_type = obj._type;
-    }
     return (*this);
 }
 
