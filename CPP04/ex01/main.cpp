@@ -9,13 +9,13 @@ int main( void )
 
     delete j;//should not create a leak
     delete i;
-    //check of the copie(superficielle or profonde)
-    Dog check;
-    {
-        Dog tmp = check;
-    }
+    
     const Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
     for ( int i = 0; i < 4; i++ ) {
         delete animals[i];
+    }
+    Dog copy_check;
+    {
+        Dog check = copy_check;
     }
 }

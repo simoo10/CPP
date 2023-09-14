@@ -1,10 +1,11 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
-#include"ICharacter.hpp"
 #include"ImateriaSource.hpp"
 
 class MateriaSource:public IMateriaSource{
+    private:
+		AMateria	*reserve[4];
     public:
         MateriaSource();
         ~MateriaSource();

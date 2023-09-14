@@ -3,13 +3,13 @@
 
 #include<iostream>
 #include"ICharacter.hpp"
-#include"Character.hpp"
+
 class AMateria{
     protected:
         std::string _type;
     public:
         AMateria();
-        ~AMateria();
+        virtual ~AMateria();
         AMateria(std::string const & type);
         AMateria(const AMateria& obj);
         AMateria& operator=(const AMateria& obj);
