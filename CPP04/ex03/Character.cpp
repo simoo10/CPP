@@ -46,6 +46,7 @@ Character::~Character()
 {
     for(int i=0;i<4;i++)
     {
+<<<<<<< HEAD
         if (inventory[i] == NULL && save[i]) {
                 delete save[i];
                 save[i] = NULL;
@@ -53,6 +54,10 @@ Character::~Character()
         if(inventory[i])
         {
             
+=======
+        if(inventory[i])
+        {
+>>>>>>> origin/main
             delete inventory[i];
             inventory[i]=NULL;
         }

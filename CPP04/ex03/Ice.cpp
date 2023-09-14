@@ -6,7 +6,11 @@ Ice::Ice()
     //std::cout << "Ice materia default constructor is called" << std::endl;
 }
 
+<<<<<<< HEAD
 Ice::Ice( Ice const & obj ):AMateria(obj)
+=======
+Ice::Ice( Ice const & obj )
+>>>>>>> origin/main
 {
     *this = obj;
     //std::cout << "Ice materia copy constructor is called" << std::endl;

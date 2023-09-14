@@ -6,7 +6,11 @@ Cure::Cure()
    // std::cout << "Cure materia default constructor is called" << std::endl;
 }
 
+<<<<<<< HEAD
 Cure::Cure( const Cure & obj ):AMateria(obj)
+=======
+Cure::Cure( const Cure & obj )
+>>>>>>> origin/main
 {
     *this = obj;
   //  std::cout << "Cure materia copy constructor is called" << std::endl;
