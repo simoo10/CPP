@@ -5,6 +5,10 @@ RM		= rm -f
 NAME	= brain
 SRC		= main.cpp\
 			Bureaucrat.cpp\
+			AForm.cpp\
+			PresidentialPardonForm.cpp\
+			RobotomyRequestForm.cpp\
+			ShrubberyCreationForm.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
 

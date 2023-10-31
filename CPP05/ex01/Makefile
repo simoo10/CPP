@@ -5,6 +5,7 @@ RM		= rm -f
 NAME	= brain
 SRC		= main.cpp\
 			Bureaucrat.cpp\
+			Form.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
 
