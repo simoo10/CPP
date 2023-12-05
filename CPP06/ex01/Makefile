@@ -2,16 +2,16 @@ CLANG = c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
-NAME	= bureaucrat
+NAME	= serialize
 SRC		= main.cpp\
-			Bureaucrat.cpp\
+			Serialize.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): 
-	$(CLANG) $(CPPFLAGS) $(SRC) -o $(NAME)
+	$(CLANG) $(PPFLAGS) $(SRC) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

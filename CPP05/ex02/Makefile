@@ -2,7 +2,7 @@ CLANG = c++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
-NAME	= brain
+NAME	= bureaucrat
 SRC		= main.cpp\
 			Bureaucrat.cpp\
 			AForm.cpp\

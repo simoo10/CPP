@@ -26,8 +26,8 @@ void    RobotomyRequestForm::execute(const Bureaucrat& execbur) const {
     else
     {
         static int  i;
-        if (i % 2 == 0)
-            std::cout << "ZZZZZZZNNN!" << target << " has been robotomized!" << std::endl;
+        if ( i % 2 == 0 )
+            std::cout << "ZZZZZZZNNN! " << target << " has been robotomized!" << std::endl;
         else
             std::cout << "Oops!Robotomy failed! " << target << " is still alive." << std::endl;
         i++;

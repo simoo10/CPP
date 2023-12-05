@@ -8,13 +8,15 @@ AForm::AForm( const std::string& nom, int signgr) : name(nom),signgrade(signgr),
         throw AForm::GradeTooLowException();
 }
 
+AForm::AForm(const std::string& nom, int signgr, int exgr):name(nom),signgrade(signgr),execgrade(exgr)
+{
+}
+
 AForm::AForm( const AForm& obj ) : name( obj.name), signgrade(obj.signgrade), execgrade(obj.execgrade)
 {
     
 }
-AForm::AForm(const std::string& nom, int signgr, int exgr):name(nom),signgrade(signgr),execgrade(exgr)
-{
-}
+
 AForm::~AForm() {
 
 }
@@ -58,7 +60,7 @@ const char *	AForm::GradeTooHighException::what() const throw() {
 }
 
 const char *	AForm::GradeTooLowException::what() const throw() {
-	return ("A Form grade is to low!");
+	return ("A Form can't have a grade lower than 150.");
 }
 
 

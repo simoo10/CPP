@@ -22,5 +22,7 @@ void    PresidentialPardonForm::execute(const Bureaucrat& execbur) const {
     if ( execbur.getGrade() > getexecgrade() )
         throw AForm::GradeTooLowException();
     else
+    {
         std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+    }
 }

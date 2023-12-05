@@ -7,41 +7,34 @@ class Bureaucrat;
 
 class Form
 {
-private:
-    const std::string   _name;
-    bool                _signed;
-    const int           _gradeToSign;
-    const int           _gradeToExecute;
-
-    Form();
-
-public:
-    Form( const std::string& name, int gradeToSign );
-    Form( const std::string& name, int gradeToSign, int gradeToExecute );
-    Form( const Form& src );
-    ~Form();
-
-    Form&   operator=( const Form& rhs );
-
-    std::string getName() const;
-    bool        getSigned() const;
-    int         getGradeToSign() const;
-    int         getGradeToExecute() const;
-
-    void        beSigned( const Bureaucrat& bureaucrat );
-    void signForm();
-
-    /* ---------------- Exception Classes ---------------- */
-    class GradeTooHighException : public std::exception {
-        public:
-            virtual const char* what() const throw() { return "Grade too high"; }
-    };
-    class GradeTooLowException : public std::exception {
-        public:
-            virtual const char* what() const throw() { return "Grade too low"; }
-    };
+    private:
+        const std::string   name;
+        bool                signee;
+        const int           signgrade;
+        const int           execgrade;
+    public:
+        Form();
+        Form( const std::string& nom, int signgr);
+        Form( const std::string& nom, int signgr, int exgr);
+        Form( const Form& obj);
+        ~Form();
+        Form&   operator=( const Form& obj );
+        std::string getname() const;
+        bool        getsigned() const;
+        int         getsigngrade() const;
+        int         getexecgrade() const;
+        void        beSigned( const Bureaucrat& bureaucrat );
+        void        signForm();
+        class GradeTooHighException : public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
+        class GradeTooLowException : public std::exception {
+            public:
+                virtual const char* what() const throw();
+        };
 };
 
-std::ostream&   operator<<( std::ostream& o, const Form& rhs );
+std::ostream&   operator<<( std::ostream& o, const Form& form );
 
 #endif
