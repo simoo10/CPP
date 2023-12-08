@@ -25,18 +25,18 @@ AForm&   AForm::operator=( const AForm& obj ) {
 }
 
 std::string AForm::getname() const {
-    return name;
+    return (name);
 }
 
 bool   AForm::getsigned() const {
-    return signee;
+    return (signee);
 }
 
 int   AForm::getsigngrade() const {
-    return signgrade;
+    return (signgrade);
 }
 int   AForm::getexecgrade() const {
-    return execgrade;
+    return (execgrade);
 }
 std::ostream&   operator<<( std::ostream& o, const AForm& form ) {
     o << "----------FORM DETAILS------" << std::endl;

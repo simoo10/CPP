@@ -27,7 +27,7 @@ AForm&   AForm::operator=( const AForm& obj ) {
 }
 
 std::string AForm::getname() const {
-    return name;
+    return (name);
 }
 
 bool   AForm::getsigned() const {
@@ -35,17 +35,17 @@ bool   AForm::getsigned() const {
 }
 
 int   AForm::getsigngrade() const {
-    return signgrade;
+    return (signgrade);
 }
 int   AForm::getexecgrade() const {
-    return execgrade;
+    return (execgrade);
 }
 std::ostream&   operator<<( std::ostream& o, const AForm& form ) {
     o << "----------FORM DETAILS------" << std::endl;
     o << "NAME-----------> " << form.getname() << std::endl
       << "SIGN GRADE-----> " << form.getsigngrade() << std::endl
       << "EXECUTE GRADE--> " << form.getexecgrade();
-    return o;
+    return (o);
 }
 void AForm:: beSigned(const Bureaucrat& bur)
 {
@@ -60,7 +60,7 @@ const char *	AForm::GradeTooHighException::what() const throw() {
 }
 
 const char *	AForm::GradeTooLowException::what() const throw() {
-	return ("A Form can't have a grade lower than 150.");
+	return ("A Form have grade to low.");
 }
 
 

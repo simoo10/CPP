@@ -12,7 +12,7 @@ OBJ	= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): 
-	$(CLANG) $(PPFLAGS) $(SRC) -o $(NAME)
+	$(CLANG) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

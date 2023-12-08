@@ -4,6 +4,7 @@
 
 #include <fstream>
 #include "AForm.hpp"
+#include<cstdlib>
 class ShrubberyCreationForm : public AForm
 {
     private:

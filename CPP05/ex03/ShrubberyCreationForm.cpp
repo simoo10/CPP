@@ -23,7 +23,8 @@ void ShrubberyCreationForm::execute(const Bureaucrat& execbur) const
         throw AForm::GradeTooLowException();
     }
     std::ofstream o;
-	o.open(target+"_shrubbery");
+    std::string filename = target + "_shrubbery";
+	o.open(filename.c_str());
 	if (!o.is_open())
 	{
 		std::cout << "Oops!something happens" << std::endl;

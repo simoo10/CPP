@@ -22,7 +22,10 @@ void    RobotomyRequestForm::execute(const Bureaucrat& execbur) const {
     if ( this->getsigned() == false )
         throw AForm::NotSignedException();
     if ( execbur.getGrade() > getexecgrade() )
+    {
+        std::cout<<execbur.getGrade()<<std::endl;
         throw AForm::GradeTooLowException();
+    }
     else
     {
         static int  i;

@@ -16,21 +16,23 @@ int main( void )
     }
 
     try {
-        Bureaucrat bureaucrat("mm", 2);
-        ShrubberyCreationForm form1("Shrubbery");
-        RobotomyRequestForm form2("Robotomy");
-        PresidentialPardonForm form3("President");
-
-        std::cout << "------ (ShrubberyForm) ------" << std::endl;
-        bureaucrat.signForm(form1);
-        bureaucrat.executeForm(form1);
-        std::cout << "-------- (RobotomyForm) --------" << std::endl;
-        bureaucrat.signForm(form2);
-        bureaucrat.executeForm(form2);
-        bureaucrat.executeForm(form2);
-        std::cout << "--------(PresidentialForm) ---------" << std::endl;
-        bureaucrat.signForm(form3);
-        bureaucrat.executeForm(form3);
+        Bureaucrat bureaucrat("mm", 26);
+        ShrubberyCreationForm f1("home");
+        RobotomyRequestForm f2("robotic");
+        PresidentialPardonForm f3("hospital");
+        std::cout << "-------------Shrubbery-----------" << std::endl;
+        bureaucrat.signForm(f1);
+        bureaucrat.executeForm(f1);
+        std::cout << "------------Robotomy-------------" << std::endl;
+        bureaucrat.signForm(f2);
+        bureaucrat.executeForm(f2);
+        bureaucrat.executeForm(f2);
+        std::cout << "--------Presidential-------------" << std::endl;
+        bureaucrat.signForm(f3);
+        bureaucrat.incrementgrade();
+        bureaucrat.incrementgrade();
+        bureaucrat.signForm(f3);
+        bureaucrat.executeForm(f3);
     } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }

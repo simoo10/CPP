@@ -25,7 +25,7 @@ void    RobotomyRequestForm::execute(const Bureaucrat& execbur) const {
         throw AForm::GradeTooLowException();
     else
     {
-        static int  i;
+        int  i = rand();
         if (i % 2 == 0)
             std::cout << "ZZZZZZZNNN!" << target << " has been robotomized!" << std::endl;
         else

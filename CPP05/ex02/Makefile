@@ -1,5 +1,5 @@
 CLANG = c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 LIBC	= ar -rc
 RM		= rm -f
 NAME	= bureaucrat
@@ -15,7 +15,7 @@ OBJ	= $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): 
-	$(CLANG) $(PPFLAGS) $(SRC) -o $(NAME)
+	$(CLANG) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean:
 		$(RM) $(OBJ)

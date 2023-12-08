@@ -3,6 +3,7 @@
 
 #include "AForm.hpp"
 #include <fstream>
+#include<cstdlib>
 
 class ShrubberyCreationForm : public AForm
 {
