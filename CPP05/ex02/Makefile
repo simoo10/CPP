@@ -1,5 +1,5 @@
 CLANG = c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
 LIBC	= ar -rc
 RM		= rm -f
 NAME	= bureaucrat

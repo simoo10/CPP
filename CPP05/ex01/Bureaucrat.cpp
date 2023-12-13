@@ -43,15 +43,15 @@ std::  ostream &operator<<(std::ostream &o, Bureaucrat const &bureaucrat)
 }
 
 void    Bureaucrat::incrementgrade() {
-    grade--;
+    
     if ( grade < 1 )
         throw Bureaucrat::GradeTooHighException();
-    
+    grade--;
 }
 
 void    Bureaucrat::decrementgrade() {
     grade++;
-    if ( grade > 150 )
+    if ( ++grade > 150 )
         throw Bureaucrat::GradeTooLowException();
     
 }

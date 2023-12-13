@@ -1,5 +1,9 @@
 #include "AForm.hpp"
 
+AForm::AForm() : name("inkonnu"),signee(false),signgrade(150) ,execgrade(150)
+{ 
+}
+
 AForm::AForm( const std::string& nom, int signgr) : name(nom),signgrade(signgr), execgrade(0)
 {
     if ( signgrade < 1 )
@@ -25,7 +29,6 @@ AForm&   AForm::operator=( const AForm& obj ) {
         signee = obj.getsigned();
     return (*this);
 }
-
 std::string AForm::getname() const {
     return (name);
 }
@@ -53,7 +56,6 @@ void AForm:: beSigned(const Bureaucrat& bur)
         signee = true;
     else
         throw AForm::GradeTooLowException();
-
 }
 const char *	AForm::GradeTooHighException::what() const throw() {
 	return ("A Form can't have a grade greater than 1.");

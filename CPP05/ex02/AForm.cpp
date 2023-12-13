@@ -1,5 +1,9 @@
 #include "AForm.hpp"
 
+AForm::AForm() : name("inkonnu"),signee(false),signgrade(150) ,execgrade(150)
+{ 
+}
+
 AForm::AForm( const std::string& nom, int signgr) : name(nom),signgrade(signgr), execgrade(0)
 {
     if ( signgrade < 1 )

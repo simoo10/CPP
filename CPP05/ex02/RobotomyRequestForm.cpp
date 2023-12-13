@@ -1,5 +1,9 @@
 #include "RobotomyRequestForm.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm(void) :AForm("Robotomy request", 72, 45), target("inkonnu")
+{
+}
+
 RobotomyRequestForm::RobotomyRequestForm(const std::string& tar ) : AForm("Robotomy", 72, 45), target(tar)
 {
 }

@@ -1,5 +1,9 @@
 #include "ShrubberyCreationForm.hpp"
 
+ShrubberyCreationForm::ShrubberyCreationForm(void) :AForm("Shrubbery creation", 145, 137), target("inkonnu")
+{
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string& tar ) : AForm( "ShrubberyCreationForm", 145, 137 ), target( tar )
 { 
 }

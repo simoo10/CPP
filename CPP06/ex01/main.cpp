@@ -4,7 +4,7 @@ int main()
 {
     Data *d = new Data;
 
-    d->data_name = "Data1";
+    d->data_name = "Data";
     d->value = 10;
     std::cout<<"-----BEFORE SERIALIZATION-----"<<std::endl;
     std::cout << "Data name: " << d->data_name << std::endl;
