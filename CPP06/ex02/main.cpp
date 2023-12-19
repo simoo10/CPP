@@ -1,5 +1,5 @@
 #include "child.hpp"
-
+#include<cstdlib>
 Base::~Base( void )
 {
     
@@ -27,15 +27,6 @@ void identify( Base * p )
         std::cout << "C" << std::endl;
 }
 
-class Exception : public std::exception
-{
-    public:
-        virtual const char* what() const throw()
-        {
-            return "Not a child class";
-        }
-};
-
 void identify( Base & p )
 {
     try {
@@ -53,7 +44,6 @@ void identify( Base & p )
                 std::cout << "C" << std::endl;
                 (void)c;
             } catch (std::exception &e) {
-                std::cout << e.what() << std::endl;
             }
         }
     }

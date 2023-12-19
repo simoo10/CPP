@@ -1,9 +1,8 @@
 CXX = c++
-CPPFLAGS	= -Wall -Wextra -Werror -std=c++98
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM		= rm -f
-NAME	= serialize
+NAME	= identification
 SRC		= main.cpp\
-			Serialize.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
 
@@ -19,7 +18,3 @@ fclean: clean
 		$(RM) $(NAME)
 
 re:	fclean all
-
-
-
-

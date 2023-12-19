@@ -8,6 +8,7 @@ Serializer::Serializer( void )
 Serializer::Serializer( Serializer const &obj )
 {
     *this = obj;
+    
 }
 
 Serializer &    Serializer::operator = ( Serializer const & obj )
