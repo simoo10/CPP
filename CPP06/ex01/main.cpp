@@ -13,7 +13,7 @@ int main()
     uintptr_t raw = Serializer::serialize(d);
     std::cout<<"-----AFTER SERIALIZATION-----"<<std::endl;
     std::cout << "Raw: " << raw << std::endl;
-    std::cout << "Raw: " << std::hex <<raw<<std::endl;
+   std::cout << "Raw: " << std::hex <<raw<<std::endl;
     Data *d2 = Serializer::deserialize(raw);
     std::cout<<"-----AFTER DESERIALIZATION-----"<<std::endl;
     std::cout << "Data name: " << d2->data_name << std::endl;

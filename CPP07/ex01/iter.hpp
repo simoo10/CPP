@@ -2,16 +2,21 @@
 #define ITER_HPP
 
 #include<iostream>
+#include<cstdlib>
+template <typename temp, typename temp1>
 
-template <typename temp>
-
-void iter(temp *t,size_t len,void (*f)(temp &))
+void iter(temp *t,size_t len,temp1 f)
 {
-    size_t i = -1;
-
-    while(++i < len)
-        f(t[i]);
+    if(t == NULL || f == NULL)
+        return;
+    size_t i = 0;
+    while(i < len)
+    {
+         f(t[i]);
+         i++;
+    }
 }
+
 template<typename temp>
 void affiche_data(temp &t)
 {
