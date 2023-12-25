@@ -3,8 +3,8 @@
 int main()
 {
     std::cout<<"--------ARRAY OF STRINGS--------"<<std::endl;
-    std::string t1[] = {"FC BARCELONA","REAL MADRID","MAN CITY","NAPOLI"};
-    iter(t1,4,affiche_data< std::string>);
+    const std::string t1[] = {"FC BARCELONA","REAL MADRID","MAN CITY","NAPOLI"};
+    iter(t1,4,affiche_data< const std::string>);
     std::cout<<"--------ARRAY OF INTEGERS--------"<<std::endl;
     int t2[]={45,29,90,105,190};
     iter(t2,5,affiche_data<const int>);

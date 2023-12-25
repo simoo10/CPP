@@ -20,6 +20,7 @@ void iter(temp *t,size_t len,temp1 f)
 template<typename temp>
 void affiche_data(temp &t)
 {
+    t =
     std::cout<<"==>>"<<t<<std::endl;
 }
 #endif
