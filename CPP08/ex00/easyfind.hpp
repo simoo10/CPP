@@ -8,11 +8,11 @@ template<typename T>
 
 void easyfind(T &t,int n)
 {
-    T it = std::find(t.begin(),t.end(),n);
-    if(it!= t.end())
+    
+    if(std::find(t.begin(),t.end(),n)!= t.end())
         std::cout<<"found"<<std::endl;
     else
-        std::cout<<"not found"<<std::endl;
+        throw std::out_of_range("THE VALUE NOT EXIST");
 }
 
 #endif
