@@ -5,7 +5,7 @@ int main()
    
     srand(time(NULL));
     std::vector<int>    vec(10000);
-    std::generate(vec.begin(),vec.end(),std::rand);
+    std::generate(vec.begin(),vec.end(),std::rand);z
      Span s(vec.size());
     try
     {
