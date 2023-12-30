@@ -6,16 +6,20 @@
 #include<vector>
 #include<stack>
 #include<deque>
-template<typename T>
 
-class MutantStack: public std::stack<T>
+template<typename T, typename Container = std::deque<T> >
+
+class MutantStack: public std::stack<T, Container>
 {
+    private:
     public:
-        MutantStack(void);
+        MutantStack(void){};
 		MutantStack(const MutantStack &obj);
-		virtual ~MutantStack();
+		virtual ~MutantStack(){};
 		MutantStack	&operator=(const MutantStack<T> &obj);
-        typedef typename Container::iterator it;
+        typedef typename Container::iterator    iterator;
+        iterator    begin(){return this->c.begin();}
+        iterator    end(){return this->c.end();}
 };
 
 #endif
