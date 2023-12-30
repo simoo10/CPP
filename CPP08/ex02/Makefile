@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 
 RM		= rm -f
-NAME	= span
+NAME	= mstack
 SRC		= main.cpp\
 
 OBJ	= $(SRC:.cpp=.o)
