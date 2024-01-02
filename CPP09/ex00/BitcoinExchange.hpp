@@ -9,7 +9,7 @@
 class BitcoinExchange
 {
     private:
-       // std::vector<std::string>vec;
+        std::map<std::string,float> map;
     public:
         BitcoinExchange();
         ~BitcoinExchange();
@@ -20,6 +20,7 @@ class BitcoinExchange
             public:
                 virtual const char* what() const throw() ;
         };
+        void fill_map_info();
 };
 
 
