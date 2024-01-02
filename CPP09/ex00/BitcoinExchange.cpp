@@ -9,6 +9,20 @@ BitcoinExchange::~BitcoinExchange()
 {
 
 }
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &obj)
+{
+    *this = obj;
+}
+
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
+{
+    if (this != &obj)
+    {
+        map = obj.map;
+    }
+    return *this;
+}
+
 void BitcoinExchange::read_input(std::string &filename)
 {
     std::ifstream file(filename);
