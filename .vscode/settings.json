@@ -64,6 +64,7 @@
         "deque": "cpp",
         "fstream": "cpp",
         "stack": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "map": "cpp"
     }
 }
