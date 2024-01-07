@@ -16,3 +16,6 @@ void easyfind(T &t,int n)
 }
 
 #endif
+
+2012-01-03 key.first key.second *value 
+map[key] = value;

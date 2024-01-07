@@ -50,10 +50,19 @@ void BitcoinExchange::read_input(std::string &filename)
     {
         std::string date;
         std::string value;
-        size_t pip = line.find("|");
+        size_t pip;
 
+        try
+        {
+        pip = line.find("|");
+        if(pip != std::string::npos || line[10]!= ' ' ||line[12] != ' ')
+            throw std::invalid_argument("Error: Invalid Input");
+        }
+        catch(std::exception &e){
+            std::cout<<e.what()<<std::endl;
+            continue;
+        }
         date = line.substr(0,pip - 1);
-        std::cout << date << std::endl;;
         value = line.substr(pip + 2);
         try
         {
@@ -71,30 +80,46 @@ void BitcoinExchange::read_input(std::string &filename)
             continue;
         }
         std::map<std::string, float>::iterator it;
-        std::cout<<date<<std::endl;
         it = map.lower_bound(date);
-        std::cout<<map["2009-01-02"] << "***"<<std::endl;
-        if(it == map.end())
-            std::cout<<"============\n";
-        // it--;
-        //std::cout<<"------------"<<it->first<<std::endl;
-            
-            it--;
+        if(it->first==date)
             std::cout<<date<<" => "<<value<<" = "<<val * it->second<<std::endl;
+        if(map.begin()!=it)
+            it--;
+        std::cout<<date<<" => "<<value<<" = "<<val * it->second<<std::endl;
     }
 }
-
+float convertToFloat(const char* str) {
+    return static_cast<float>(atof(str));
+}
 float BitcoinExchange:: check_value(std::string value)
 {
     float v;
+    int i = 0;
 
-    v = std::atof(value.c_str());
-
-    if(v < 0 || v > 1000)
+    while(value[i])
+    {
+        if((value[i]<'0' && value[i]>'9') && value[i] != '.')
+            throw BitcoinExchange::InvalidDate();
+        i++;
+    }
+    v = convertToFloat(value.c_str());
+    if(v < 0)
         throw BitcoinExchange::NegativeNumber();
     else if(v > 1000)
         throw BitcoinExchange::BigNumber();
     return(v);
+}
+
+int check_month(int month)
+{
+    int m[] = {1, 3, 5, 7, 8, 10 ,12};
+
+    for(int i = 0;i<7;i++)
+    {
+        if(month == m[i])
+            return(1);
+    }
+    return(0);
 }
 void BitcoinExchange::check_date(std::string date)
 {
@@ -102,12 +127,17 @@ void BitcoinExchange::check_date(std::string date)
     int count = 0;
     while(date[i])
     {
+        if((date[i]<'0' && date[i]>'9') && date[i] != '-')
+            throw BitcoinExchange::InvalidDate();
         if(date[i] == '-')
             count++;
         i++;
     }
-    if(count != 2 || i != 11)
+    if(count != 2 || i != 10)
+    {
+        
         throw BitcoinExchange::InvalidDate();
+    }
     if(date[4] != '-' || date[7] != '-')
         throw BitcoinExchange::InvalidDate();
     int year;
@@ -118,15 +148,21 @@ void BitcoinExchange::check_date(std::string date)
     year = atoi((date.substr(0,4)).c_str());
     month = atoi((date.substr(5,7)).c_str());
     day = atoi((date.substr(8,10)).c_str());
-
+    
     if(year < 2009 || year > 2022)
+    {
         throw BitcoinExchange::InvalidDate();
+        
+    }
     if(month < 1 || month > 12)
         throw BitcoinExchange::InvalidDate();
-    if(month == (12|| 1 || 3 || 5 || 7 || 8 || 10 || 12))
+    if(check_month(month)==1)
     {
+       
         if(day < 1 || day > 31)
+        {
             throw BitcoinExchange::InvalidDate();
+        }
     }
     else
     {
@@ -134,19 +170,26 @@ void BitcoinExchange::check_date(std::string date)
         {
             if(isLeapYear(year))
             {
+                 
                 if(day < 1 || day > 29)
                     throw BitcoinExchange::InvalidDate();
             }
             else
             {
                 if(day < 1 || day > 28)
+                {
+                    
                     throw BitcoinExchange::InvalidDate();
+                }
             }
         }
         else
         {
             if(day < 1 || day > 30)
+            {
+                
                 throw BitcoinExchange::InvalidDate();
+            }
         }
     }
 }
@@ -187,9 +230,7 @@ void BitcoinExchange:: fill_map_info()
 
         date = line.substr(0,pip);
         value = line.substr(pip+1);
-         //std::cout << date << " " << value <<std::endl;
         map[date] = std::atof(value.c_str());
     }
-    //exit(1);
     fi.close();
 }
