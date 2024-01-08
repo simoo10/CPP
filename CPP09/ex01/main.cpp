@@ -9,6 +9,6 @@ int main(int c,char **v)
     }
     RPN r;
     
-    std::string vv(v[1]);
-    r.fill_stack(vv);
+    // std::string vv(v[1]);
+    r.fill_stack(v[1]);
 }

@@ -4,7 +4,14 @@
 #include<iostream>
 #include<vector>
 #include<cstdlib>
+#include<deque>
 
-
+class PmergeMe{
+    private:
+        std::vector<int>v;
+        std::deque<int>d;
+    public:
+        void fill_vector(std::string *arr);
+};
 
 #endif

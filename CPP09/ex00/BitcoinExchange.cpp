@@ -51,12 +51,12 @@ void BitcoinExchange::read_input(std::string &filename)
         std::string date;
         std::string value;
         size_t pip;
-
+        pip = line.find("|");
         try
         {
-        pip = line.find("|");
-        if(pip != std::string::npos || line[10]!= ' ' ||line[12] != ' ')
-            throw std::invalid_argument("Error: Invalid Input");
+        
+        if(line[10]!= ' ' ||line[12] != ' ')
+            throw std::invalid_argument("---Error: Invalid Input");
         }
         catch(std::exception &e){
             std::cout<<e.what()<<std::endl;
