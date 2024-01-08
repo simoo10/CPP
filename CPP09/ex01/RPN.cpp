@@ -72,7 +72,9 @@ try{
             continue;
         }
         if(val[i] != '+'&&val[i] != '-'&&val[i] != '*'&&val[i] != '/')
-        {std::cout<<val[i]<<"==============\n";
+        {
+            if(val[i+1]!=' ')
+                throw std::invalid_argument("Error: The Next Caracter Should Be A Space.");
             s.push(convint(val[i]));
         }
         else
@@ -100,8 +102,11 @@ try{
                 int a = s.top();
                 s.pop();
                 int b = s.top();
+                if(a == 0)
+                    throw std::invalid_argument("Error: Division by 0");
                 s.pop();
                 s.push(div(b,a));
+                
             }
             else if(val[i] == '*')
             {
@@ -114,13 +119,18 @@ try{
         }
         i++;
     }
+    //exit(0);
     if(s.size() == 1)
+    {
         std::cout<<s.top()<<std::endl;
+    }
     else
-        throw("Error");
+        throw std::invalid_argument("Error");
+    std::cout<<"+++++\n";
     }
 catch(std::exception &e)
     {
-        std::cout<<e.what()<<std::endl;
+         std::cout<<e.what()<<std::endl;
     }
+       
 }
