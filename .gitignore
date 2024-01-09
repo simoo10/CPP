@@ -1,4 +1,3 @@
 .vscode
 .gitignore
-.o
-./CUB3D
+*.o

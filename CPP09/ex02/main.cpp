@@ -9,11 +9,16 @@ int main(int c,char **v)
         return(0);
     }
     std::string arr[c-1];
-    int i = 0;
+    size_t i = 1;
+    size_t j = 0;
     while(v[i])
     {
-        arr[i] = v[i];
+        arr[j] = v[i];
         i++;
+        j++;
     }
+    PmergeMe p;
+    p.fill_vector(arr,j,c);
+    p.fill_deque(arr,j,c);
     
 }
