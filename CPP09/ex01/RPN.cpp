@@ -67,7 +67,6 @@ try{
             throw std::invalid_argument("Error: Invalid Caracter");
         if(val[i] == ' ')
         {
-            std::cout<<"----------\n";
             i++;
             continue;
         }
@@ -119,14 +118,12 @@ try{
         }
         i++;
     }
-    //exit(0);
     if(s.size() == 1)
     {
         std::cout<<s.top()<<std::endl;
     }
     else
         throw std::invalid_argument("Error");
-    std::cout<<"+++++\n";
     }
 catch(std::exception &e)
     {

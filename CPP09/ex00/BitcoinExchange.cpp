@@ -65,7 +65,7 @@ void BitcoinExchange::read_input(std::string &filename)
                 throw std::invalid_argument("Empty line");
         
             if(line[10]!= ' ' ||line[12] != ' ')
-                throw std::invalid_argument("---Error: Invalid Input");
+                throw std::invalid_argument("Error: Invalid Input");
         }
         catch(std::exception &e){
             std::cout<<e.what()<<std::endl;
@@ -98,6 +98,18 @@ void BitcoinExchange::read_input(std::string &filename)
     }
 }
 float convertToFloat(const char* str) {
+    int i = 0;
+    int count = 0;
+    while(str[i])
+    {
+        if((str[i]<'0' || str[i] > '9') && str[i]!='.' && str[i] != '+')
+            throw std::invalid_argument("Error: Invalid Input");
+        if(str[i] == '+')
+            count++;
+        i++;
+    }
+    if(count > 1)
+        throw std::invalid_argument("Error: Invalid Input");
     return static_cast<float>(atof(str));
 }
 float BitcoinExchange:: check_value(std::string value)
@@ -113,7 +125,13 @@ float BitcoinExchange:: check_value(std::string value)
             throw BitcoinExchange::InvalidDate();
         i++;
     }
-    v = convertToFloat(value.c_str());
+    try{
+        v = convertToFloat(value.c_str());
+    }
+    catch(std::exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
+    }
     if(v < 0)
         throw BitcoinExchange::NegativeNumber();
     else if(v > 1000)
