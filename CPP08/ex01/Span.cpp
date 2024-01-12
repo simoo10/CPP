@@ -66,3 +66,12 @@ int Span::longestSpan()
     maximum = tmp[tmp.size()-1] - tmp[0];
     return(maximum);
 }
+
+void Span::generate_numbers()
+{
+    srand(time(NULL));
+    std::vector<int>    vec(10000);
+    std::generate(vec.begin(),vec.end(),std::rand);
+    for(size_t i=0;i<vec.size();i++)
+        addNumber(vec[i]);
+}

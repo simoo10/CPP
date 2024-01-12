@@ -44,6 +44,5 @@ int main()
         std::cout << *it1 << std::endl;
         ++it1;
     }
-   // std::vector<int> s(vec);
     return 0;
 }

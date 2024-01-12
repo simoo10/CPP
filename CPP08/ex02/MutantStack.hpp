@@ -15,7 +15,7 @@ class MutantStack: public std::stack<T, Container>
     public:
         MutantStack(void){};
 		MutantStack(const MutantStack &obj);
-		virtual ~MutantStack(){};
+		~MutantStack(){};
 		MutantStack	&operator=(const MutantStack<T> &obj);
         typedef typename Container::iterator    iterator;
         iterator    begin(){return this->c.begin();}

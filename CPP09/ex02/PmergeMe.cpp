@@ -70,7 +70,7 @@ void PmergeMe::fill_vector(std::string *arr,size_t j,int c)
     int rest = 0;
     int paire = 0;
     struct timeval start, end;
-    long sec, micro;
+    size_t sec, mics;
     gettimeofday(&start, NULL);
    try
    {
@@ -125,9 +125,9 @@ void PmergeMe::fill_vector(std::string *arr,size_t j,int c)
         print_vect(v,"After:   ");
         gettimeofday(&end, NULL);
         sec = end.tv_sec - start.tv_sec;
-        micro = end.tv_usec - start.tv_usec;
-        long diff = (sec / 1000000) + (micro);
-        std::cout << "\nTime to process a range of " << c << " elements with std::vector : " << diff  << " us" << "\n";
+        mics= end.tv_usec - start.tv_usec;
+        size_t temps = (sec / 1000000) + (mics);
+        std::cout << "\nTime to process a range of " << c << " elements with std::vector : " << temps  << " us" << "\n";
     }
     catch(std::exception &e)
     {

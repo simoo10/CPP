@@ -27,6 +27,7 @@ class Span{
             public:
                 virtual const char* what() const throw() ;
         };
+        void generate_numbers();
 };
 
 #endif

@@ -40,10 +40,17 @@ void BitcoinExchange::read_input(std::string &filename)
         exit(1);
     }
     std::getline(file,line);
+    try
+    {
     if(line != "date | value")
     {
         std::cout << "Error: invalid file format" << std::endl;
-        exit(1);
+        throw std::invalid_argument("Error");
+    }
+    }
+    catch(std::exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
     }
     float val = 0.0f;
     while(std::getline(file,line))
@@ -54,9 +61,11 @@ void BitcoinExchange::read_input(std::string &filename)
         pip = line.find("|");
         try
         {
+            if(line.empty())
+                throw std::invalid_argument("Empty line");
         
-        if(line[10]!= ' ' ||line[12] != ' ')
-            throw std::invalid_argument("---Error: Invalid Input");
+            if(line[10]!= ' ' ||line[12] != ' ')
+                throw std::invalid_argument("---Error: Invalid Input");
         }
         catch(std::exception &e){
             std::cout<<e.what()<<std::endl;
@@ -99,6 +108,8 @@ float BitcoinExchange:: check_value(std::string value)
     while(value[i])
     {
         if((value[i]<'0' && value[i]>'9') && value[i] != '.')
+            throw BitcoinExchange::InvalidDate();
+        if(value[i] == '.' && (!isdigit(value[i+1])|| (!isdigit(value[i-1]))))
             throw BitcoinExchange::InvalidDate();
         i++;
     }

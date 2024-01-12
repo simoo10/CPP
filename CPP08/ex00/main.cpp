@@ -2,15 +2,18 @@
 #include <algorithm>
 #include<vector>
 #include<list>
-int main( int c, char ** v)
+int main()
 {
-    if (c != 2)
+    std::vector<int>v;
+    std::list<int>l;
+    for(size_t i =0; i < 8;i++)
     {
-        std::cout<<"enter a value"<<std::endl;
-        return (0);
+        v.push_back(i+1);
+        l.push_back(i+1);
     }
-    int                 arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    std::vector< int >  vect(arr, arr + sizeof(arr) / sizeof(int));
-    easyfind(vect, std::atoi(v[1]));
+    easyfind(v, 5);
+    easyfind(v, 10);
+    easyfind(l, 11);
+    easyfind(l, 7);
     return 0;
 }
