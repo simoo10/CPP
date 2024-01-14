@@ -2,10 +2,8 @@
 #define BITCOINEXCHANGE
 
 #include<iostream>
-#include<vector>
 #include<map>
 # include<fstream>
-#include <sstream>
 #include<cstdlib>
 
 class BitcoinExchange

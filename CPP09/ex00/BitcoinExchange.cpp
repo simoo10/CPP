@@ -103,20 +103,23 @@ float convertToFloat(const char* str) {
     while(str[i])
     {
         if((str[i]<'0' || str[i] > '9') && str[i]!='.' && str[i] != '+')
-            throw std::invalid_argument("Error: Invalid Input");
+            throw std::invalid_argument(" Invalid Input");
         if(str[i] == '+')
             count++;
         i++;
     }
     if(count > 1)
-        throw std::invalid_argument("Error: Invalid Input");
+        throw std::invalid_argument(" Invalid Input");
     return static_cast<float>(atof(str));
 }
 float BitcoinExchange:: check_value(std::string value)
 {
     float v;
     int i = 0;
-
+    if(!value[i])
+    {
+        throw std::invalid_argument(" Invalid Input");
+    }
     while(value[i])
     {
         if((value[i]<'0' && value[i]>'9') && value[i] != '.')
@@ -125,13 +128,7 @@ float BitcoinExchange:: check_value(std::string value)
             throw BitcoinExchange::InvalidDate();
         i++;
     }
-    try{
-        v = convertToFloat(value.c_str());
-    }
-    catch(std::exception &e)
-    {
-        std::cout<<e.what()<<std::endl;
-    }
+    v = convertToFloat(value.c_str());
     if(v < 0)
         throw BitcoinExchange::NegativeNumber();
     else if(v > 1000)
@@ -149,6 +146,18 @@ int check_month(int month)
             return(1);
     }
     return(0);
+}
+
+bool check_digit(std::string s)
+{
+    int i =0;
+    while(s[i])
+    {
+        if(!isdigit(s[i]))
+            return(false);
+        i++;
+    }
+    return(true);
 }
 void BitcoinExchange::check_date(std::string date)
 {
@@ -172,13 +181,16 @@ void BitcoinExchange::check_date(std::string date)
     int year;
     int month;
     int day;
-
+    std::string month1 = date.substr(5,2);
+     std::string day2 = date.substr(8,2);
+    if(!check_digit(month1)|| !check_digit(day2))
+        throw BitcoinExchange::InvalidDate();
     
     year = atoi((date.substr(0,4)).c_str());
     month = atoi((date.substr(5,7)).c_str());
     day = atoi((date.substr(8,10)).c_str());
     
-    if(year < 2009 || year > 2022)
+    if(year < 2009)
     {
         throw BitcoinExchange::InvalidDate();
         
