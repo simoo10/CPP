@@ -1,4 +1,28 @@
 #include"PmergeMe.hpp"
+PmergeMe::PmergeMe()
+{
+}
+
+PmergeMe::~PmergeMe()
+{    
+}
+
+PmergeMe::PmergeMe(const PmergeMe &obj)
+{
+    *this = obj;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &obj)
+{
+    if (this != &obj)
+    {
+        d = obj.d;
+        v = obj.v;
+        pdeq = obj.pdeq;
+        pvec = obj.pvec;
+    }
+    return *this;
+}
 
 void check_numbers(std::string nbr)
 {
@@ -8,7 +32,7 @@ void check_numbers(std::string nbr)
         if(isdigit(nbr[i]))
             i++;
         else
-            throw std::invalid_argument("");
+            throw std::invalid_argument("Invalid Argument.");
     }
 }
 void PmergeMe::recursion_sort(size_t i)
@@ -64,16 +88,11 @@ void PmergeMe::print_deq(std::deque<int>d,std::string msg)
 }
 
 
-void PmergeMe::fill_vector(std::string *arr,size_t j,int c)
+void PmergeMe::fill_vector(std::string *arr,size_t j)
 {
     size_t i = 0;
     int rest = 0;
     int paire = 0;
-    struct timeval start, end;
-    size_t sec, mics;
-    gettimeofday(&start, NULL);
-   try
-   {
         while(i<j)
         {
             check_numbers(arr[i]);
@@ -93,12 +112,14 @@ void PmergeMe::fill_vector(std::string *arr,size_t j,int c)
             rest  = v[v.size()-1];
             v.pop_back();
         }
+        int e = 0;
         while(i<v.size())
         {
             pvec.push_back(std::make_pair(v[i],v[i+1]));
-            if(pvec[i].first<pvec[i].second)
-                std::swap(pvec[i].first,pvec[i].second);
+            if(pvec[e].first < pvec[e].second)
+                std::swap(pvec[e].first,pvec[e].second);
             i+=2;
+            e++;
         }
         recursion_sort(0);
         i = 0;
@@ -123,26 +144,18 @@ void PmergeMe::fill_vector(std::string *arr,size_t j,int c)
             v.insert(it,rest);
         }
         print_vect(v,"After:   ");
-        gettimeofday(&end, NULL);
-        sec = end.tv_sec - start.tv_sec;
-        mics= end.tv_usec - start.tv_usec;
-        size_t temps = (sec / 1000000) + (mics);
-        std::cout << "\nTime to process a range of " << c << " elements with std::vector : " << temps  << " us" << "\n";
-    }
-    catch(std::exception &e)
-    {
-        std::cout<<e.what()<<std::endl;
-    }
+    //}
+    // catch(std::exception &e)
+    // {
+    //     std::cout<<e.what()<<std::endl;
+    // }
 }
 
-void PmergeMe::fill_deque(std::string *arr,size_t j,int c)
+void PmergeMe::fill_deque(std::string *arr,size_t j)
 {
     size_t i = 0;
     int rest = 0;
     int paire = 0;
-    struct timeval start, end;
-    long sec, micro;
-    gettimeofday(&start, NULL);
    try
    {
         while(i<j)
@@ -157,19 +170,20 @@ void PmergeMe::fill_deque(std::string *arr,size_t j,int c)
             i++;
         }
         i = 0;
-        print_deq(d,"Before:   ");
         if(d.size() % 2 != 0)
         {
             paire = 1;
             rest  = d[d.size()-1];
             d.pop_back();
         }
+        int e = 0;
         while(i<d.size())
         {
             pdeq.push_back(std::make_pair(d[i],d[i+1]));
-            if(pdeq[i].first<pdeq[i].second)
-                std::swap(pdeq[i].first,pdeq[i].second);
+            if(pdeq[e].first<pdeq[e].second)
+                std::swap(pdeq[e].first,pdeq[e].second);
             i+=2;
+            e++;
         }
         recursion_sort_deq(0);
         i = 0;
@@ -193,12 +207,6 @@ void PmergeMe::fill_deque(std::string *arr,size_t j,int c)
             it = std::lower_bound(d.begin(),d.end(),rest);
             d.insert(it,rest);
         }
-        print_deq(d,"After:   ");
-        gettimeofday(&end, NULL);
-    sec = end.tv_sec - start.tv_sec;
-    micro = end.tv_usec - start.tv_usec;
-    long diff = (sec / 1000000) + (micro);
-    std::cout << "\nTime to process a range of " << c << " elements with std::deque : " << diff  << " us" << "\n";
     }
     catch(std::exception &e)
     {

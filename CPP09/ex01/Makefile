@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98 
 RM		= rm -f
-NAME	= rpn
+NAME	= RPN
 SRC		= main.cpp\
 			RPN.cpp\
 

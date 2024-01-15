@@ -18,9 +18,12 @@ class PmergeMe{
         void recursion_sort_deq(size_t i);
         void print_deq(std::deque<int>v,std::string msg);
     public:
-        void fill_vector(std::string *arr,size_t j,int c);
-        void fill_deque(std::string *arr,size_t j,int c);
-        
+        void fill_vector(std::string *arr,size_t j);
+        void fill_deque(std::string *arr,size_t j);
+        PmergeMe();
+        ~PmergeMe();
+        PmergeMe(const PmergeMe &obj);
+        PmergeMe &operator=(const PmergeMe &obj);
 };
 
 #endif

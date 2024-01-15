@@ -3,11 +3,13 @@
 
 int main(int c,char **v)
 {
-    if(c < 2)
+    if(c < 3)
     {
         std::cout<<"INVALID NUMBER OF ARGUMENTS"<<std::endl;
         return(0);
     }
+    try
+    {
     std::string arr[c-1];
     size_t i = 1;
     size_t j = 0;
@@ -18,7 +20,19 @@ int main(int c,char **v)
         j++;
     }
     PmergeMe p;
-    p.fill_vector(arr,j,c);
-    p.fill_deque(arr,j,c);
-    
+    clock_t start = clock();
+    p.fill_vector(arr,j);
+    clock_t end = clock();
+    double t = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
+    std::cout << "Time to process a range of " << c - 1 << " elements with std::victor : " << t << " us" << std::endl;
+    start = clock();
+    p.fill_deque(arr,j);
+    end = clock();
+    t = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000;
+    std::cout << "Time to process a range of " << c - 1 << " elements with std::victor : " << t << " us" << std::endl;
+    }
+    catch(std::exception &e)
+    {
+        std::cout<<e.what()<<std::endl;
+    }
 }
